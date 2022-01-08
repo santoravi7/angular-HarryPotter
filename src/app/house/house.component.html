@@ -1,0 +1,15 @@
+
+<div class="nb-scroll">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let characters of data | groupBy:'house'">
+      <div class=" col">
+        <div class="char-details">
+          <h3 (click)="getInfo(characters.value)">{{characters.key}}</h3>
+          <!-- <h6>{{characters.value | json}}</h6> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
