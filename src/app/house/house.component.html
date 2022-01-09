@@ -10,8 +10,10 @@
     <div class="col-md-3" *ngFor="let characters of data | groupBy:'house'">
       <div class=" col">
         <div class="char-details">
-          <img src="assets/{{characters.key|lowercase}}_logo.png" onerror="this.src='app/assets/placeholder.png';"/>
-          <a (click)="getInfo(characters)">{{characters.key}}</a>
+        <a (click)="getInfo(characters)">
+          <img src="https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/{{characters.key|lowercase}}_logo.png" onerror="this.src=
+          'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
+          {{characters.key ? characters.key : "Others"}}</a>
           <!-- <h6>{{characters.value | json}}</h6> -->
         </div>
       </div>

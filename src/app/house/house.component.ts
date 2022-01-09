@@ -32,6 +32,8 @@ export class HouseComponent implements OnInit {
   }
   getInfo(characters){
     console.log("Character house - "+characters.key);
+    if(!characters.key)
+      characters.key="others";
     const data : Object =(characters); 
     this._data.data=JSON.stringify(characters);
     this.router.navigate(['/charactersInHouse/'+characters.key],{relativeTo:this.route});

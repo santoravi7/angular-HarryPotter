@@ -8,12 +8,13 @@
       </button>
     </div>
       <div class="col-md-12">
-        <p>Total Members in {{houseName.key}} - {{count}}</p>
+        <p>Total Members in {{houseName.key}} House - {{count}}</p>
         <hr/>
       </div>
       <div class="col-md-3" *ngFor="let characters of houseName.value">
         <div class="char">
-          <img [src]=characters.image/>
+          <img [src]=characters.image onerror="this.src=
+          'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
           <div class="char-details">
             <h3>{{characters.name}}</h3>
           </div>

@@ -8,7 +8,8 @@
     </div>
     <div class="col-md-3" *ngFor="let characters of data; index as charId">
     <div class="char">
-      <img [src]=characters.image/>
+      <img [src]=characters.image onerror="this.src=
+      'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
       <div class="char-details">
         <h3>{{characters.name}}</h3>
       </div>
