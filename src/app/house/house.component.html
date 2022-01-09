@@ -10,7 +10,7 @@
     <div class="col-md-3" *ngFor="let characters of data | groupBy:'house'">
       <div class=" col">
         <div class="char-details">
-          <img src="https://cdn.jsdelivr.net/gh/santoravi7/angular-HarryPotter@master/src/assets/{{characters.key|lowercase}}.png"/>
+          <img src="https://cdn.jsdelivr.net/gh/santoravi7/angular-HarryPotter@master/src/assets/{{characters.key|lowercase}}_logo.png"/>
           <a (click)="getInfo(characters)">{{characters.key}}</a>
           <!-- <h6>{{characters.value | json}}</h6> -->
         </div>
