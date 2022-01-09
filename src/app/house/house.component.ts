@@ -42,5 +42,7 @@ export class HouseComponent implements OnInit {
   goBack() : void {
     this.location.back()
   }
-  
+  images={
+    'gryggindor':''
+  }
 }
