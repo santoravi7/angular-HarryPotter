@@ -6,11 +6,11 @@
         House
       </a>
     </div>
-    <div class="col-md-3" *ngFor="let characters of data; index as charId">
-    <div class="char">
-      <img [src]=characters.image onerror="this.src=
-      'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
+    <div class="col" *ngFor="let characters of data; index as charId">
+    <div class="char">   
       <div class="char-details">
+        <img [src]=characters.image onerror="this.src=
+        'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
         <h3>{{characters.name}}</h3>
       </div>
     </div>

@@ -1,10 +1,32 @@
 .char{
   width: 250px;
-  height: 350px;
+  height: 300px;
 }
 
 .char-details{
-  padding-top: 20px;
+  padding-top: 0px;  
+  transition-duration: 0.75s;
+}
+
+.char-details img{
+  max-width: 200px;
+  padding: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.char-details:hover{
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding-bottom: 20px;
+  margin: auto;
+  transform: scale(1.1, 1.1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 .char h3{
