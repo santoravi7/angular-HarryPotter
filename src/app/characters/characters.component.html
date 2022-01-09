@@ -1,19 +1,19 @@
 <div class="nb-scroll">
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 char-nav">
       <a (click)="houseView()">        
-        <h4 class="nav-font">House</h4>
+        House
       </a>
     </div>
     <div class="col-md-3" *ngFor="let characters of data; index as charId">
-        <div class="char">
-        <img [src]=characters.image/>
-        <div class="char-details">
-          <h3>{{characters.name}}</h3>
-        </div>
+    <div class="char">
+      <img [src]=characters.image/>
+      <div class="char-details">
+        <h3>{{characters.name}}</h3>
       </div>
     </div>
+  </div>
   </div>
 </div>
 </div>

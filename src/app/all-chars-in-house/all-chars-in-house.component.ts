@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
+import { Location } from '@angular/common';
+import { DataStorage } from '../data-storage';
 import { HarrypotterService } from '../harrypotter.service';
 
 @Component({
@@ -12,12 +15,18 @@ export class AllCharsInHouseComponent implements OnInit {
   houseName
   constructor(
     private harrypotterService:HarrypotterService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private _data:DataStorage,
+    private location:Location
   ) { }
 
   ngOnInit() {
-    this.houseName = JSON.parse(this.route.snapshot.paramMap.get('house'))
+    // this.houseName = JSON.parse(this.route.snapshot.paramMap.get('house'))
+    this.houseName = JSON.parse(this._data.data);
     this.count = this.houseName.value.length
-    // console.log("houseName params - "+this.houseName)    
+    console.log("houseName params - "+this.houseName);    
+  }
+  goBack() : void {
+    this.location.back()
   }
 }

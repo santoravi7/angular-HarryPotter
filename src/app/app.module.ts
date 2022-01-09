@@ -10,6 +10,7 @@ import { AppRoutingModule, routingComponents } from './app-routing/app-routing.m
 import { CharactersComponent } from './characters/characters.component';
 import { NavComponent } from './nav/nav.component';
 import { GroupByPipe } from './group-by.pipe';
+import { DataStorage } from './data-storage';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
@@ -19,6 +20,6 @@ import { GroupByPipe } from './group-by.pipe';
     GroupByPipe
   ],
   bootstrap: [AppComponent],
-  providers: [HarrypotterService],
+  providers: [HarrypotterService,DataStorage],
 })
 export class AppModule {}

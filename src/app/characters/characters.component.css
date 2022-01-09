@@ -19,11 +19,25 @@
   background-size: contain;
 }
 
+.char-nav{
+  padding-bottom: 30px;
+  font-weight: 600;
+}
+
+.char-nav a{
+  font-size: 18px;
+}
+
 .nb-scroll{
   overflow: scroll;
   overflow-x: hidden;
   height: 90vh;
   width:100%;
   background-color: aliceblue;
-  padding-top: 30px;
+  /* padding-top: 30px; */
+}
+
+a, a:hover {
+  cursor: pointer;
+  text-decoration: none;
 }

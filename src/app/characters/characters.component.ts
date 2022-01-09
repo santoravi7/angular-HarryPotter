@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 import { HarrypotterService } from '../harrypotter.service';
 
 @Component({
@@ -13,7 +14,9 @@ export class CharactersComponent implements OnInit {
   response: any;
   constructor(private harrypotterService: HarrypotterService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private location:Location
+  ) {}
 
   data=[];
 
@@ -29,5 +32,8 @@ export class CharactersComponent implements OnInit {
   }
   houseView():void{
     this.router.navigate(['/house'], {relativeTo:this.route});
+  }
+  goBack() : void {
+    this.location.back()
   }
 }
