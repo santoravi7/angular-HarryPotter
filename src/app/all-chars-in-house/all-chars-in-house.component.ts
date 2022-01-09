@@ -8,7 +8,7 @@ import { HarrypotterService } from '../harrypotter.service';
   styleUrls: ['./all-chars-in-house.component.css']
 })
 export class AllCharsInHouseComponent implements OnInit {
-  data:any;
+  count
   houseName
   constructor(
     private harrypotterService:HarrypotterService,
@@ -16,17 +16,8 @@ export class AllCharsInHouseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  // this.houseName=JSON.parse(this.route.snapshot.paramMap.get('house'))
-  // console.log("house name - "+this.houseName)
-  //  this.harrypotterService.getAllChars().subscribe((results)=>{
-  //     this.data=results;
-  //   })
-    this.route.queryParams.subscribe(
-      params=>{
-        let data = (params['house']);
-        console.log("params in all chars - "+data)
-      }
-    )
+    this.houseName = JSON.parse(this.route.snapshot.paramMap.get('house'))
+    this.count = this.houseName.value.length
+    // console.log("houseName params - "+this.houseName)    
   }
-
 }

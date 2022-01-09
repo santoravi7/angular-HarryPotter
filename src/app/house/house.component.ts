@@ -26,9 +26,9 @@ export class HouseComponent implements OnInit {
     // this.harrypotterService.setAllChars(JSON.stringify(dataArr));
   }
   getInfo(characters){
-    // console.log(JSON.stringify(characters));
-    const data : Object = JSON.stringify(characters);
-   this.router.navigate(['/charactersInHouse',{ queryParams: { house:data}}],{relativeTo:this.route}); 
+    console.log("Character house - "+characters.key);
+    const data : Object =(characters); 
+    this.router.navigateByUrl(this.router.createUrlTree(['/charactersInHouse/'+characters.key,{ house:JSON.stringify(data)}]));
   // this.http.post('/charactersInHouse',JSON.stringify(characters));
   }
   

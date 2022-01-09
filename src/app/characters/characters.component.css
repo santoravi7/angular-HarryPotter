@@ -27,37 +27,3 @@
   background-color: aliceblue;
   padding-top: 30px;
 }
-
-
-.fake-scroll{
-  overflow-y: scroll; 
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #eee;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #585858;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0);
-}
-
-a, a:hover {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-font{
-  padding-bottom: 20px;
-}

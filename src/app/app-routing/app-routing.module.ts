@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo:'/characters',pathMatch:'full'},
   { path: 'characters', component: CharactersComponent },
   { path: 'house', component: HouseComponent},
-  { path:'charactersInHouse',component: AllCharsInHouseComponent}
+  { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent}
 ];
 
 @NgModule({
