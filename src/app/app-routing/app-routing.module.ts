@@ -5,10 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharactersComponent } from '../characters/characters.component';
 import { HouseComponent } from '../house/house.component';
 import { AllCharsInHouseComponent } from '../all-chars-in-house/all-chars-in-house.component';
+import { HomeComponent } from '../home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo:'/characters',pathMatch:'full'},
+  { path: '', redirectTo:'/home',pathMatch:'full'},
+  {path:'home',component: HomeComponent},
   { path: 'characters', component: CharactersComponent },
   { path: 'house', component: HouseComponent},
   { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent}
@@ -24,5 +26,6 @@ export class AppRoutingModule {}
 export const routingComponents=[
   CharactersComponent,
   HouseComponent,
-  AllCharsInHouseComponent
+  AllCharsInHouseComponent,
+  HomeComponent
 ]
