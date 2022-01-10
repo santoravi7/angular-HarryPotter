@@ -6,6 +6,7 @@ import { CharactersComponent } from '../characters/characters.component';
 import { HouseComponent } from '../house/house.component';
 import { AllCharsInHouseComponent } from '../all-chars-in-house/all-chars-in-house.component';
 import { HomeComponent } from '../home/home.component';
+import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'home',component: HomeComponent},
   { path: 'characters', component: CharactersComponent },
   { path: 'house', component: HouseComponent},
-  { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent}
+  { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent},
+  {path:'**',component:PagenotfoundComponent}
 ];
 
 @NgModule({
@@ -27,5 +29,6 @@ export const routingComponents=[
   CharactersComponent,
   HouseComponent,
   AllCharsInHouseComponent,
-  HomeComponent
+  HomeComponent,
+  PagenotfoundComponent
 ]
