@@ -7,6 +7,7 @@ import { HouseComponent } from '../house/house.component';
 import { AllCharsInHouseComponent } from '../all-chars-in-house/all-chars-in-house.component';
 import { HomeComponent } from '../home/home.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
+import { CharDetailsComponent } from '../char-details/char-details.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'characters', component: CharactersComponent },
   { path: 'house', component: HouseComponent},
   { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent},
+  {path:'chardetails/:charId',component:CharDetailsComponent},
   {path:'**',component:PagenotfoundComponent}
 ];
 
@@ -30,5 +32,6 @@ export const routingComponents=[
   HouseComponent,
   AllCharsInHouseComponent,
   HomeComponent,
+  CharDetailsComponent,
   PagenotfoundComponent
 ]

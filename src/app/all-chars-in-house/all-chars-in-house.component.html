@@ -1,25 +1,24 @@
 
 <div class="nb-scroll">
-<div class="container">
-  <div class="row">
-  <div class="col list-navbar">
-    <button (click)="goBack()" class="back-btn" title="Go Back">
-      <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
-    </button>
-  </div>
-    <div class="col-md-12">
-      <p>Total Members in {{houseName.key}} House - {{count}}</p>
-      <hr/>
+  <div class="container">
+    <div class="row">
+    <div class="col list-navbar">
+      <button (click)="goBack()" class="back-btn" title="Go Back">
+        <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
+      </button>
     </div>
-    <div class="col-md-3" *ngFor="let characters of houseName.value">
-      <div class="char">
-        <img [src]=characters.image onerror="this.src=
-        'https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'"/>
-        <div class="char-details">
-          <h3>{{characters.name}}</h3>
-        </div>
+      <div class="col-md-12">
+        <p>Total Members in {{houseName.key}} House - {{count}}</p>
+        <hr/>
+      </div>
+      <div class="col-md-3" *ngFor="let characters of houseName.value;index as charId">
+        <a class="char" (click)="viewCharDetails(characters.name,charId)">
+          <img [src]=characters.image/>
+          <div class="char-details">
+            <h3>{{characters.name}}</h3>
+          </div>
+        </a>
       </div>
     </div>
   </div>
-</div>
-</div>
+  </div>

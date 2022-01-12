@@ -1,0 +1,23 @@
+<div class="nb-scroll">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 list-navbar">
+        <button (click)="goBack()" class="back-btn" title="Go Back">
+          <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
+        </button>
+      </div>
+      <div class="col-md-3" *ngFor="let characters of data; index as charId">
+          <div class=" col">
+            <div class="char-details">
+            <a >
+              <img [src]=characters.image/> 
+              <!-- 
+                onerror="this.src='https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'" -->
+              {{characters.name}}
+            </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>

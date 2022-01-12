@@ -20,8 +20,4 @@ private jsonData: Object;
     console.log("json data set - "+this.jsonData);
   }
 
-  getCharsInHouse(){
-    return this.jsonData;
-  }
-
 }

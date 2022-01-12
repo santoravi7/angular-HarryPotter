@@ -6,21 +6,24 @@
 .char-details{
   padding-top: 0px;  
   transition-duration: 0.75s;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .char-details img{
   max-width: 200px;
-  padding: 20px;
+  height: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top:20px;
+  padding-bottom: 20px;
 }
 
 .char-details:hover{
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   padding-bottom: 20px;
-  margin: auto;
   transform: scale(1.1, 1.1);
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;

@@ -17,7 +17,8 @@ export class AllCharsInHouseComponent implements OnInit {
     private harrypotterService:HarrypotterService,
     private route:ActivatedRoute,
     private _data:DataStorage,
-    private location:Location
+    private location:Location,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -28,5 +29,11 @@ export class AllCharsInHouseComponent implements OnInit {
   }
   goBack() : void {
     this.location.back()
+  }
+  data=[]
+  viewCharDetails(charName,charId):void{
+    console.log("character name "+charName);
+    // const charName = +this.route.snapshot.paramMap.get('charName');
+    this.router.navigate(['/chardetails/'+charId,{charId:charId}],{relativeTo:this.route})
   }
 }
