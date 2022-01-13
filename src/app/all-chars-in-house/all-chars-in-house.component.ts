@@ -32,8 +32,7 @@ export class AllCharsInHouseComponent implements OnInit {
   }
   data=[]
   viewCharDetails(charName,charId):void{
-    console.log("character name "+charName);
     // const charName = +this.route.snapshot.paramMap.get('charName');
-    this.router.navigate(['/chardetails/'+charId,{charId:charId}],{relativeTo:this.route})
+    this.router.navigate(['/chardetails/'+charId,{charId:charId,charName:charName}],{relativeTo:this.route})
   }
 }

@@ -6,14 +6,14 @@
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
         </button>
       </div>
-      <div class="col-md-3" *ngFor="let characters of data; index as charId">
+      <div class="col-md-3" *ngFor="let characters of data | groupBy:'cat' | pairs; index as charId">
           <div class=" col">
             <div class="char-details">
-            <a >
-              <img [src]=characters.image/> 
+              <a class="char" (click)="viewCharDetails(characters,charId)">
+              <img src="https://hp-api.herokuapp.com/images/harry.jpg"/> 
               <!-- 
                 onerror="this.src='https://stackblitz.com/files/angular-ivy-tkxjke/github/santoravi7/angular-HarryPotter/master/src/assets/placeholder.png'" -->
-              {{characters.name}}
+              {{characters.key}}
             </a>
             </div>
           </div>

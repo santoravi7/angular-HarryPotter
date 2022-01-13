@@ -6,13 +6,17 @@
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
         </button>
       </div>
-      <div class="col-md-3" *ngFor="let characters of data; index as charId">
+      <div class="col-md-3" *ngFor="let characters of charData.value; index as charId">
           <div class=" col">
-            <div class="char-details">
-            <a >
-              <img [src]=characters.image/> 
-              {{characters.name}}
-            </a>
+            <div class="char-details">  
+              <img [src]=characters.image/>         
+              Character Name : {{characters.name}}
+              <br>
+              Original Name : {{characters.actor}}
+              <br>
+              Date of Birth : {{characters.yearOfBirth}}
+              <br>
+              Wand : {{characters.wand.core ? characters.wand.core : "NA"}}
             </div>
           </div>
       </div>

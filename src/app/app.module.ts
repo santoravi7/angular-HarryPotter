@@ -11,13 +11,15 @@ import { CharactersComponent } from './characters/characters.component';
 import { NavComponent } from './nav/nav.component';
 import { GroupByPipe } from './group-by.pipe';
 import { DataStorage } from './data-storage';
+import { GroupbynamePipe } from './groupbyname.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   declarations: [AppComponent,
     NavComponent,
     routingComponents,
-    GroupByPipe
+    GroupByPipe,
+    GroupbynamePipe
   ],
   bootstrap: [AppComponent],
   providers: [HarrypotterService,DataStorage],

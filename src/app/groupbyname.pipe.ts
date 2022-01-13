@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'groupBy'
+  name: 'groupbyname'
 })
-export class GroupByPipe implements PipeTransform {
+export class GroupbynamePipe implements PipeTransform {
 
   transform(array:any[], property: string): any[]  {
     
@@ -13,12 +13,15 @@ export class GroupByPipe implements PipeTransform {
       } else {
           previous[current[property]].push(current);
       }
-      // console.log("INSIE PIPE - "+property)
+      console.log("INSIE PIPE - "+property)
       return previous;
   }, {});
 
   // this will return an array of objects, each object containing a group of objects
-  return Object.keys(groupedCollection).map(key => ({ key, value: groupedCollection[key] }));
+  return Object.keys(groupedCollection).map(key => ({
+     key, 
+     value: groupedCollection[key] 
+    }));
   }
 
 }
