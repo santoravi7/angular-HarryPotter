@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { Location } from '@angular/common';
 import { DataStorage } from '../data-storage';
 import { HarrypotterService } from '../harrypotter.service';
@@ -13,6 +13,7 @@ import { HarrypotterService } from '../harrypotter.service';
 export class AllCharsInHouseComponent implements OnInit {
   count
   houseName
+  item
   constructor(
     private harrypotterService:HarrypotterService,
     private route:ActivatedRoute,
@@ -21,18 +22,42 @@ export class AllCharsInHouseComponent implements OnInit {
     private router:Router
   ) { }
 
+  currentState$:Observable<any>;
+    charData
   ngOnInit() {
-    // this.houseName = JSON.parse(this.route.snapshot.paramMap.get('house'))
-    this.houseName = JSON.parse(this._data.data);
-    this.count = this.houseName.value.length
-    console.log("houseName params - "+this.houseName);    
+    this.currentState$ = this.route.paramMap.pipe(
+      map(() => window.history.state.houseDetails.queryParams)
+    ); 
+    console.log("current state all chars - "+this.currentState$)
+    this.currentState$.subscribe((results) =>  {
+      this.charData = results;
+      // this.groupItem((this.charData));
+      console.log("Character in subscribe = "+(results))
+    });
+    this.count = Object.keys(this.charData.groupItem).length
+    
   }
+
+  groupItem(array: any[]){
+    this.item = array.reduce((r,{name})=>{
+        if(!r.some((o: { name: any; })=>o.name==name)){
+          r.push({name,groupItem:array.filter(v=>v.house==name)});
+    }
+    return r;
+    },[]);
+  }
+
   goBack() : void {
     this.location.back()
   }
   data=[]
-  viewCharDetails(charName,charId):void{
+  viewCharDetails(characters,charId):void{
+    console.log("characters in all char - "+JSON.stringify(characters))
+    let objToSend: NavigationExtras = {
+      queryParams: characters
+  }
     // const charName = +this.route.snapshot.paramMap.get('charName');
-    this.router.navigate(['/chardetails/'+charId,{charId:charId,charName:charName}],{relativeTo:this.route})
+    this.router.navigate(['/chardetails/'+charId],{ 
+      state: { charDetails: objToSend }})
   }
 }

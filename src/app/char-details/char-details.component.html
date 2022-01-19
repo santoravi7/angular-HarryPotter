@@ -6,19 +6,20 @@
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
         </button>
       </div>
-      <div class="col-md-3" *ngFor="let characters of charData.value; index as charId">
-          <div class=" col">
+      <!-- <pre>{{ currentState$ | async | json }}</pre>
+      =={{charData.groupItem}}=== -->
+      <div class="col-md-3" *ngFor="let char of charData.groupItem; index as charId">
+          <div class="col">
             <div class="char-details">  
-              <img [src]=characters.image/>         
-              Character Name : {{characters.name}}
-              <br>
-              Original Name : {{characters.actor}}
-              <br>
-              Date of Birth : {{characters.yearOfBirth}}
-              <br>
-              Wand : {{characters.wand.core ? characters.wand.core : "NA"}}
-            </div>
+              <img [src]=char.image/>
+              {{char?.name}}
+              {{char?.actor}}
+              {{char?.gender}}
+              {{char?.house}}
+              {{char?.wand?.wood}}
+              {{char?.dateOfBirth}}
           </div>
+         
       </div>
     </div>
   </div>

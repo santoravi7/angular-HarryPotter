@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HarrypotterService } from '../harrypotter.service';
 import { DataStorage } from '../data-storage';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-char-details',
@@ -11,7 +12,7 @@ import { DataStorage } from '../data-storage';
   styleUrls: ['./char-details.component.css']
 })
 export class CharDetailsComponent implements OnInit {
-  data=[];charData;
+  data=[];charData;charName;charId
   constructor( 
     private harrypotterService:HarrypotterService,
     private location:Location,
@@ -19,24 +20,24 @@ export class CharDetailsComponent implements OnInit {
     private router:Router,
     private _data:DataStorage,
   ) { }
-
+  currentState$: Observable<any>;
   ngOnInit() {
     this.getCharDetails();
   }
 
   getCharDetails(){
-    this.charData = JSON.parse(this._data.data);
-    // const charId = this.route.snapshot.paramMap.get('charId');
-    // const charName = this.route.snapshot.paramMap.get('charName');
-    // console.log("charId - "+charId);
-    // var stringArray = charName.split(/(\s+)/);
-    // console.log("char NAme - "+stringArray[0]);
-    // this.harrypotterService.getAllChars().subscribe((results) =>  {
-    //   const index = Object.values(results).indexOf(stringArray[0]);
-    //   console.log("index - "+index);
-    //   this.charData = [(results)[charId]]
-    //   console.log(this.charData)
-    // })
+    this.currentState$ = this.route.paramMap.pipe(
+      map(() => window.history.state.charDetails.queryParams)
+    ); 
+    console.log("current state - "+JSON.stringify(this.currentState$))
+    this.currentState$.subscribe((results) =>  {
+      this.charData = results;
+      console.log("Character in subscribe = "+JSON.stringify(results))
+    });
+    this.route.queryParams.subscribe(params => {
+      this.charName = params
+      console.log("params - "+params);
+    });
   }
 
   goBack() : void {

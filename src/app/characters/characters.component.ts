@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data, Router } from '@angular/router';
+import { ActivatedRoute, Data, NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 import { HarrypotterService } from '../harrypotter.service';
@@ -36,9 +36,9 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  groupItem(array){
+  groupItem(array: any[]){
     this.item = array.reduce((r,{name})=>{
-        if(!r.some(o=>o.name==name)){
+        if(!r.some((o: { name: any; })=>o.name==name)){
           r.push({name,groupItem:array.filter(v=>v.name==name)});
     }
     return r;
@@ -52,8 +52,13 @@ export class CharactersComponent implements OnInit {
     this.location.back()
   }
   viewCharDetails(characters,charId):void{
+    console.log(characters)
+    let objToSend: NavigationExtras = {
+        queryParams: characters
+    }
     this._data.data=JSON.stringify(characters);
     // const charName = +this.route.snapshot.paramMap.get('charName');
-    this.router.navigate(['/chardetails/'+charId,{charId:charId}],{relativeTo:this.route})
+    this.router.navigate(['/chardetails/'+charId],{ 
+      state: { charDetails: objToSend }})
   }
 }
