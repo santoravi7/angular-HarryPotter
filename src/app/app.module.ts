@@ -12,9 +12,10 @@ import { NavComponent } from './nav/nav.component';
 import { GroupByPipe } from './group-by.pipe';
 import { DataStorage } from './data-storage';
 import { GroupbynamePipe } from './groupbyname.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule,Ng2SearchPipeModule],
   declarations: [AppComponent,
     NavComponent,
     routingComponents,

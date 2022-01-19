@@ -6,7 +6,10 @@
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
         </button>
       </div>
-      <div class="col-md-3" *ngFor="let characters of data | groupBy:'name'; index as charId">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-hero ">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a Character by name">
+      </div>
+      <div class="col-md-3" *ngFor="let characters of data | groupBy:'name'  | filter:searchText; index as charId">
           <div class=" col">
             <div class="char-details">
               <a class="char" (click)="viewCharDetails(characters,charId)">

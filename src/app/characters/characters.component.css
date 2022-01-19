@@ -79,3 +79,12 @@ a, a:hover {
 .back-btn img{
   width: 60%;
 }
+
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+  margin-bottom: 30px;
+}

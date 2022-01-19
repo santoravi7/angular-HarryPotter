@@ -13,6 +13,7 @@ import { DataStorage } from '../data-storage';
 export class CharactersComponent implements OnInit {
   characters: any;
   response: any;
+  searchText
   constructor(private harrypotterService: HarrypotterService,
     private router: Router,
     private route: ActivatedRoute,
