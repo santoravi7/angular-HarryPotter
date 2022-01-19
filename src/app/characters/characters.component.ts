@@ -21,7 +21,7 @@ export class CharactersComponent implements OnInit {
     private _data:DataStorage,
   ) {}
 
-  data=[];
+  data=[];item;
 
   ngOnInit() {
     this.getCharacters();
@@ -30,10 +30,21 @@ export class CharactersComponent implements OnInit {
   getCharacters(): void {
     this.harrypotterService.getAllChars().subscribe((results) =>  {
       this.data = results;
-      console.log("get characters in characters compoent - "+this.data)
-    })
-    ;
+      // console.log("get characters in characters compoent - "+this.data)
+      this.groupItem(this.data);
+      console.log("inside groupItem - ")
+    });
   }
+
+  groupItem(array){
+    this.item = array.reduce((r,{name})=>{
+        if(!r.some(o=>o.name==name)){
+          r.push({name,groupItem:array.filter(v=>v.name==name)});
+    }
+    return r;
+    },[]);
+  }
+
   houseView():void{
     this.router.navigate(['/house'], {relativeTo:this.route});
   }
