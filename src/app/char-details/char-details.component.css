@@ -87,3 +87,27 @@ a, a:hover {
   height: 250px;
   background-size: contain;
 }
+
+.chardet-wrapper{
+  height: 60vh;
+}
+
+.chardetail-img{
+  display: flex;
+  justify-content: center;
+}
+
+.chardetail-info{
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+
+.chardetail-info table tr{
+  height: 40px;
+}
+
+.chardetail-info table tr td{
+  padding: 10px;
+}

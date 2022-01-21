@@ -8,19 +8,53 @@
       </div>
       <!-- <pre>{{ currentState$ | async | json }}</pre>
       =={{charData.groupItem}}=== -->
-      <div class="col-md-3" *ngFor="let char of charData.groupItem; index as charId">
-          <div class="col">
-            <div class="char-details">  
-              <img [src]=char.image/>
-              {{char?.name}}
-              {{char?.actor}}
-              {{char?.gender}}
-              {{char?.house}}
-              {{char?.wand?.wood}}
-              {{char?.dateOfBirth}}
-          </div>
-         
+      <div class="col-md-12" *ngFor="let char of charData.groupItem; index as charId">
+            <div class="row chardet-wrapper">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 chardetail-img">
+                  <img [src]=char.image/>
+              </div>
+    
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 chardetail-info">
+                <div >  
+                  <table>
+                    <tr>
+                      <td>Character Name</td>
+                      <td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Actor Name</td>
+                      <td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.actor}}</td>
+                    </tr>
+                    <tr>
+                      <td>Gender </td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.gender ? char?.gender  : "Not Available"}}</td>
+                    </tr>
+                    <tr>
+                      <td>House </td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.house ? char?.house : "Not Available"}}</td>
+                    </tr>
+                    <tr>
+                      <td>Wand </td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.wand?.wood ? char?.wand?.wood : "Not Available"}}</td>
+                    </tr>
+                    <tr>
+                      <td>Date of Birth </td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char?.dateOfBirth ? char.dateOfBirth : "Not Available"}}</td>
+                    </tr>
+                    <tr>
+                      <td>Alternate Name</td><td>&nbsp;:&nbsp;</td>
+                      <td *ngIf="char.alternate_names">{{char.alternate_names}}</td>
+                      <td *ngIf="!char.alternate_names">"No Alternate Names"</td>
+                    </tr>
+                    <tr *ngIf="char.ancestry">
+                      <td>Ancestry Name</td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char.ancestry}}</td>
+                    </tr>
+                  </table>              
+                </div>
+              </div>
+            </div>
       </div>
-    </div>
-  </div>
   </div>
