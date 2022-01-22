@@ -5,10 +5,11 @@
         <button (click)="goBack()" class="back-btn" title="Go Back">
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
         </button>
+        <span>Character details</span>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search-hero ">
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a Character by name">
-        <p>Harry Potter character details</p>
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a Character by name">
+        
       </div>
       
       <div class="col-md-3" *ngFor="let characters of item | filter:searchText; index as charId">

@@ -25,12 +25,15 @@ export class HouseComponent implements OnInit {
     this.getHouseDetails()
   }
   getHouseDetails():void{
-    let dataArr = this.harrypotterService.getAllChars().subscribe((results)=>{
-      this.data=results;
-      this.groupItem(this.data);
-      console.log("item inside house - "+this.item)
-    })
+    // let dataArr = this.harrypotterService.getAllChars().subscribe((results)=>{
+    //   this.data=results;
+    //   this.groupItem(this.data);
+    //   console.log("item inside house - "+this.item)
+    // })
     // this.harrypotterService.setAllChars(JSON.stringify(dataArr));
+    this.data = this.route.snapshot.data.users;
+    console.log("get characters in characters component - "+this.data)
+    this.groupItem(this.data);
   }
   groupItem(array: any[]){
     this.item = array.reduce((r,{house})=>{

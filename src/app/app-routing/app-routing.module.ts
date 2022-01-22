@@ -22,7 +22,14 @@ const routes: Routes = [
     }
   },
   // { path: 'characters', component: CharactersComponent },
-  { path: 'house', component: HouseComponent},
+  // { path: 'house', component: HouseComponent},
+  {
+    path: 'house',
+    component: HouseComponent,
+    resolve: {
+      users: UserResolver
+    }
+  },
   { path:'charactersInHouse/:houseName',component: AllCharsInHouseComponent},
   {path:'chardetails/:charId',component:CharDetailsComponent},
   {path:'**',component:PagenotfoundComponent}

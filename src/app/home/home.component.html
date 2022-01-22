@@ -10,13 +10,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
-        <a (click)="houseView()">        
-          House
+        <a [routerLink]="['/house']">        
+          Houses in HarryPotter
         </a>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
         <a [routerLink]="['/characters']">        
-          Characters
+          Characters in HarryPotter
         </a>
       </div>
     </div>
