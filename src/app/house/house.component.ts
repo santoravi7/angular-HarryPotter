@@ -44,13 +44,13 @@ export class HouseComponent implements OnInit {
   getInfo(characters){
     console.log("Character house - "+characters.house);
     if(!characters.house)
-      characters.key="others";
+      characters.house="others";
     // const data : Object =(characters); 
     // this._data.data=JSON.stringify(characters);
     let objToSend: NavigationExtras = {
         queryParams: characters
     }
-    this.router.navigate(['/charactersInHouse/'+characters.name],{ 
+    this.router.navigate(['/charactersInHouse/'+characters.house],{ 
       state: { houseDetails: objToSend }});
     // this.router.navigateByUrl(this.router.createUrlTree(['/charactersInHouse/'+characters.key,{ house:JSON.stringify(data)}]));
    

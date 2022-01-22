@@ -44,13 +44,23 @@
                       <td>{{char?.dateOfBirth ? char.dateOfBirth : "Not Available"}}</td>
                     </tr>
                     <tr>
-                      <td>Alternate Name</td><td>&nbsp;:&nbsp;</td>
-                      <td *ngIf="char.alternate_names">{{char.alternate_names}}</td>
-                      <td *ngIf="!char.alternate_names">"No Alternate Names"</td>
+                      <td>Alternate Name</td>
+                      <td>&nbsp;:&nbsp;</td>  
+                      <td *ngFor="let alt of char.alternate_names; index as altId">
+                        {{alt}}
+                        <span *ngIf="char.alternate_names.length>1 && altId<char.alternate_names.length-1">,</span>
+                      </td>
+                      <td *ngIf="char.alternate_names.length == 0">
+                        No Alternate Name
+                      </td>
                     </tr>
-                    <tr *ngIf="char.ancestry">
+                    <tr>
                       <td>Ancestry Name</td><td>&nbsp;:&nbsp;</td>
-                      <td>{{char.ancestry}}</td>
+                      <td>{{char.ancestry || "Not Available"}}</td>
+                    </tr>
+                    <tr>
+                      <td>Patronus Name</td><td>&nbsp;:&nbsp;</td>
+                      <td>{{char.patronus || "Not Available"}}</td>
                     </tr>
                   </table>              
                 </div>
