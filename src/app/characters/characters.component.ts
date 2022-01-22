@@ -28,11 +28,14 @@ export class CharactersComponent implements OnInit {
   }
   
   getCharacters(): void {
-    this.harrypotterService.getAllChars().subscribe((results) =>  {
-      this.data = results;
-      // console.log("get characters in characters compoent - "+this.data)
-      this.groupItem(this.data);
-    });
+    // this.harrypotterService.getAllChars().subscribe((results) =>  {
+    //   this.data = results;
+    //   // console.log("get characters in characters compoent - "+this.data)
+    //   this.groupItem(this.data);
+    // });
+    this.data = this.route.snapshot.data.users;
+    console.log("get characters in characters component - "+this.data)
+    this.groupItem(this.data);
   }
 
   groupItem(array: any[]){

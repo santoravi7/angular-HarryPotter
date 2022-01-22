@@ -1,16 +1,24 @@
-<div class="nb-scroll">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
-      <a (click)="houseView()">        
-        House
-      </a>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
-      <a (click)="charView()">        
-        Characters
-      </a>
-    </div>
+<div *ngIf="loader.isVisible() | async" class="overlay">
+  <div class="spinner">
+      <div class="lds-ring">
+        <div></div><div></div><div></div><div></div>
+      </div>
   </div>
 </div>
+
+<div class="nb-scroll">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
+        <a (click)="houseView()">        
+          House
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 char-nav">
+        <a [routerLink]="['/characters']">        
+          Characters
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
