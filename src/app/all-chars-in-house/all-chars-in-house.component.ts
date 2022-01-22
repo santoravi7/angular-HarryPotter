@@ -28,11 +28,11 @@ export class AllCharsInHouseComponent implements OnInit {
     this.currentState$ = this.route.paramMap.pipe(
       map(() => window.history.state.houseDetails.queryParams)
     ); 
-    console.log("current state all chars - "+this.currentState$)
+    // console.log("current state all chars - "+this.currentState$)
     this.currentState$.subscribe((results) =>  {
       this.charData = results;
       // this.groupItem((this.charData));
-      console.log("Character in subscribe = "+(results))
+      // console.log("Character in subscribe = "+(results))
     });
     this.count = Object.keys(this.charData.groupItem).length
     
@@ -52,9 +52,12 @@ export class AllCharsInHouseComponent implements OnInit {
   }
   data=[]
   viewCharDetails(characters,charId):void{
-    console.log("characters in all char - "+JSON.stringify(characters))
+    // console.log("characters in all char - "+JSON.stringify(characters))
     let objToSend: NavigationExtras = {
-      queryParams: characters
+      queryParams: {
+        name: characters.name,
+        groupItem: Array.of(characters)
+      }
   }
     // const charName = +this.route.snapshot.paramMap.get('charName');
     this.router.navigate(['/chardetails/'+charId],{ 

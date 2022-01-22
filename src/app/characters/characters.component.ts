@@ -32,7 +32,6 @@ export class CharactersComponent implements OnInit {
       this.data = results;
       // console.log("get characters in characters compoent - "+this.data)
       this.groupItem(this.data);
-      console.log("inside groupItem - ")
     });
   }
 
@@ -52,12 +51,10 @@ export class CharactersComponent implements OnInit {
     this.location.back()
   }
   viewCharDetails(characters,charId):void{
-    console.log(characters)
     let objToSend: NavigationExtras = {
         queryParams: characters
     }
     this._data.data=JSON.stringify(characters);
-    // const charName = +this.route.snapshot.paramMap.get('charName');
     this.router.navigate(['/chardetails/'+charId],{ 
       state: { charDetails: objToSend }})
   }

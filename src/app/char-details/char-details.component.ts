@@ -29,14 +29,14 @@ export class CharDetailsComponent implements OnInit {
     this.currentState$ = this.route.paramMap.pipe(
       map(() => window.history.state.charDetails.queryParams)
     ); 
-    console.log("current state - "+JSON.stringify(this.currentState$))
+    // console.log("current state - "+JSON.stringify(this.currentState$))
     this.currentState$.subscribe((results) =>  {
       this.charData = results;
-      console.log("Character in subscribe = "+JSON.stringify(results))
+      // console.log("Character in subscribe = "+JSON.stringify(results))
     });
     this.route.queryParams.subscribe(params => {
       this.charName = params
-      console.log("params - "+params);
+      // console.log("params - "+params);
     });
   }
 
