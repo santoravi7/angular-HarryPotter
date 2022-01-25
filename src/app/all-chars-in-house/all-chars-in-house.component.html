@@ -14,9 +14,8 @@
       <div class="col-md-3" *ngFor="let characters of charData.groupItem;index as charId">
         <a class="char" (click)="viewCharDetails(characters,charId)">
           <div class="char-details">
-            <!-- <div *ngFor="let value of characters.groupItem"> -->
-              <img [src]=characters.image/>
-            <!-- </div> -->
+            <img [src]=characters.image/>
+
             <h3>{{characters.name}}</h3>
           </div>
         </a>

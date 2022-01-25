@@ -21,38 +21,25 @@ export class CharactersComponent implements OnInit {
     private _data:DataStorage,
   ) {}
 
-  data=[];item;
+  data=[]; item; key='name'
 
   ngOnInit() {
     this.getCharacters();
   }
   
   getCharacters(): void {
-    // this.harrypotterService.getAllChars().subscribe((results) =>  {
-    //   this.data = results;
-    //   // console.log("get characters in characters compoent - "+this.data)
-    //   this.groupItem(this.data);
-    // });
     this.data = this.route.snapshot.data.users;
-    console.log("get characters in characters component - "+this.data)
-    this.groupItem(this.data);
-  }
-
-  groupItem(array: any[]){
-    this.item = array.reduce((r,{name})=>{
-        if(!r.some((o: { name: any; })=>o.name==name)){
-          r.push({name,groupItem:array.filter(v=>v.name==name)});
-    }
-    return r;
-    },[]);
+    this.item = this.harrypotterService.groupItem(this.data,this.key)    
   }
 
   houseView():void{
     this.router.navigate(['/house'], {relativeTo:this.route});
   }
+
   goBack() : void {
     this.location.back()
   }
+  
   viewCharDetails(characters,charId):void{
     let objToSend: NavigationExtras = {
         queryParams: characters
